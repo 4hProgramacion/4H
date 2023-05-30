@@ -7,20 +7,50 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./ejer3.component.css']
 })
 export class Ejer3Component {
-  protected title: string="Fundacion Acevedo"   
-  Formulario:FormGroup;
-  constructor(private FormBuilder:FormBuilder){
+  [x: string]: any;
+  protected title: string = "Fundacion Acevedo"
+  protected Formulario: FormGroup;
+  constructor(private FormBuilder: FormBuilder){
     this.Formulario = this.FormBuilder.group({
-      password:['',[
+      password: ['', [
         Validators.required,
         Validators.pattern('^(?=*[a-zA-Z0-9]=$'),
         Validators.minLength(9)
 
       ]
-    ]
-    })
+      ],
+      confirmaPasword: ['', [ 
+        Validators.required,
+      ]],
+      correo: ['', [ 
+        Validators.required,
+        Validators.email
+      ]],
+      nombre: ['', [
+        Validators.required,
+      ]],
+      apellido: [''],
+      edad: [''],
+      telefono: [''],
+      direccion: [''],
+      ciudad: [''],
+      estado: [''],
+      pais: [''],
+      codigoPostal: [''],
+      fecha: [''],
+       
+    }, 
+    {Validators: this['passwordIguale'] })
+
+  }
+  protected passwordsIguale(formGroup: FormGroup) {
+    const pass = formGroup.get('password')?.value || '';
+    const confirmaPasword = formGroup.get('confirmaPassword')?.value || '';
+    return pass === confirmaPasword ? null : {nosoniguales: true };
   }
 
-
-
 }
+
+
+
+
