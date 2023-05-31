@@ -1,0 +1,144 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Registro al sistema de la empresa {{title}}</h3>
+                    <div class="card-body">
+                        <form [formGroup]="passwordForm">
+                            <div class="row">
+                                <div class="col d-flex justify-content-between">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Name *</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                            placeholder="" formControlName="nombre">
+                                        <small id="helpId" class="form-text text-muted">Help
+                                            text</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                            placeholder="" formControlName="lastName">
+                                        <small id="helpId" class="form-text text-muted">Help
+                                            text</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Age *</label>
+                                        <input type="number" class="form-control" name="" id=""
+                                            aria-describedby="helpId" placeholder="" formControlName="age">
+                                        <small id="helpId" class="form-text text-muted">Help
+                                            text</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-between">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Phone *</label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="" formControlName="phone">
+                                            <small id="helpId" class="form-text
+                                        text-muted">Help
+                                                text</small>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Address</label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text
+                                        text-muted">Help
+                                                text</small>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">City</label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text
+                                        text-muted">Help
+                                                text</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-between">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">State</label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text
+                                        text-muted">Help text</small>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Country</label>
+                                            <input type="text" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text text-muted">Help text</small>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Postal Code</label>
+                                            <input type="number" class="form-control" name="" id=""
+                                                aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text text-muted">Help text</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-between">
+                                        <div class="mb-3">
+                                            <label for="cumple">Fecha de nacimiento: *</label>
+                                            <input type="date" name="cumple" id="cumple" class="form-control"
+                                                aria-describedby="helpId">
+                                            <small id="helpId" class="form-text text-muted">Help text</small>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Email *</label>
+                                            <input type="email" class="form-control" name="" id=""
+                                                aria-describedby="emailHelpId" placeholder="abc@mail.com"
+                                                formControlName="email">
+                                            <small id="emailHelpId" class="form-text text-muted">Help text</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-between">
+                                        <div class="row">
+                                            <div class="col mb-6 mb-3">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Password *</label>
+                                                    <input type="password" class="form-control" name="" id=""
+                                                        placeholder="" formControlName="password">
+                                                    <div *ngIf="passwordForm.get('password')?.invalid && passwordForm.get('password')?.touched" class="alert alert-danger">
+                                                            La contraseña debe tener al menos 8 caracteres, una letra
+                                                            mayuscua, una letra minuscula y número.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col mb-6 mb-3">
+                                                <div class="mb-3">
+                                                    <label for="" class="form-label">Confirma Password *</label>
+                                                    <input type="password" class="form-control" name="" id=""
+                                                        placeholder="" formControlName="confirmacionPassword">
+                                                    <div *ngIf="passwordForm.errors?.['noSonIguales'] && passwordForm.controls['confirmaPassword'].dirty" class="alert alert-danger">
+                                                            La contraseña no Coincide
+                                                    </div>
+                                                    <div *ngIf="!(passwordForm.errors?.['noSonIguales'] && passwordForm.controls['confirmaPassword'].dirty)">
+                                                        <i class="fa fa-check"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary"
+                                        [disabled]="!passwordForm.hasValidator">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

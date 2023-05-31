@@ -1,0 +1,142 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-11">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Formulario de registro a la base de datos {{title}} </h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="Formulario">
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+                                
+
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" name="" id="" aria-describedby="helpid"
+                                        placeholder="" formControlName="nombre">
+                                    <small id="helpid" class="form-text text.muted">help text</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Apellido</label>
+                                    <input type="text" class="form-control" last name="" id="" aria-describedby="helpid"
+                                        placeholder="" formControlName="apellido">
+                                    <small id="helpid" class="form-text text.muted">help text</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Edad</label>
+                                    <input type="number" class="form-control" name="" id="" aria-describedby="helpid"
+                                        placeholder="" formControlName="edad">
+                                    <small id="helpid" class="form-text text.muted">help text</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between">
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Telefono</label>
+                                    <input type="text" class="form-control" name="" id="" aria-describedby="helpid"
+                                        placeholder="" formControlName="telefono">
+                                    <small id="helpid" class="form-text text.muted">help text</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" name="" id=""
+                                        aria-describedby="emailHelpid" placeholder="abc@gmail.com"
+                                        formControlName="correo">
+                                    <small id="emailHelpid" class="form-text text.muted">help text</small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Ciudad</label>
+                                    <input type="text" class="form-control" name="" id="" aria-describedby="helpid"
+                                        placeholder="" formControlName="ciudad">
+                                    <small id="helpid" class="form-text text.muted">help text</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-between">
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Estado</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpid"
+                                            placeholder="" formControlName="estado">
+                                        <small id="helpid" class="form-text text.muted">help text</small>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Pais</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpid"
+                                            placeholder="" formControlName="pais">
+                                        <small id="helpid" class="form-text text.muted">help text</small>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="cumple">fecha de nacimiento</label>
+                                        <input type="date" class="form-control" name="cumple" id="cumple"
+                                            aria-describedby="helpid" placeholder="" formControlName="fecha">
+                                        <small id="helpid" class="text.muted">help text</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-between">
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">postal</label>
+                                        <input type="number" class="form-control" name="" id=""
+                                            aria-describedby="helpid" placeholder="" formControlName="codigopostal">
+                                        <small id="helpid" class="form-text text.muted">help text</small>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">address</label>
+                                        <input type="text" class="form-control" name="" id="" aria-describedby="helpid"
+                                            placeholder="">
+                                        <small id="helpid" class="form-text text.muted">help text</small>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-between">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">password</label>
+                                            <input type="password" class="form-control" name="" id="" placeholder=""
+                                                formControlName="password">
+                                            <div *ngIf="Formulario.get('password')?.invalid && Formulario.get ('password')?.touched"
+                                                > El password es obligatorio y debe tener
+                                                almenos 8 cararteres,
+                                                debe incluir por lo menos una mayuscula y un mumero
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">confirmar password</label>
+                                            <input type="password" class="form-control" name="" id="" placeholder=""
+                                                formControlName="confirmar password">
+                                                <div *ngIf="Formulario.get('confirmapassword')?.invalid && Formulario.get ('confirmapassword')
+                                                ?.touched">No coinciden
+                                                    los password
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" [disabled]="! Formulario.valid"
+                                class="btn btn-primary">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

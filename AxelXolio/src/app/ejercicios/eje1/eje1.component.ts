@@ -28,5 +28,4 @@ validar(){
   }
   alert("Usuario y contraseña incorrectos");
 }
-
 }
