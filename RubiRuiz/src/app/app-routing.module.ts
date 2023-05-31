@@ -7,7 +7,7 @@ import { Eje3Component } from './ejercicios/eje3/eje3.component';
 const routes: Routes = [
   {path: 'eje1', component:Eje1Component},
   {path: 'Home', component:Eje2Component},
-  {path: 'eje3', component:Eje3Component}
+  {path: 'registro', component:Eje3Component}
 ];
 
 @NgModule({
