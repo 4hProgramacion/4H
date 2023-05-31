@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./eje2.component.css']
 })
 export class Eje2Component {
-
-}
+  protected usuarios:any[]=[];
+  constructor (private servicio:UsuariosService){}
+     public nfOnInit(): void{
+      this.servicio.getUsuarios().subscribe(
+        (data) => {
+          this.usuarios = data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  }
