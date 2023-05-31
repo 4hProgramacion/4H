@@ -4,9 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Eje1Component } from './ejercicios/eje1/eje1.component';
-import { FormsModule } from '@angular/forms';
 import { Eje2Component } from './ejercicios/eje2/eje2.component';
 import { Eje3Component } from './ejercicios/eje3/eje3.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { Eje3Component } from './ejercicios/eje3/eje3.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

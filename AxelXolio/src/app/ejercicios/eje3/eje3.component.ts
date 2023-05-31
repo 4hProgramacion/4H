@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-eje3',
@@ -11,7 +11,6 @@ export class Eje3Component {
   protected formulario: FormGroup;
   constructor(private formbuilder: FormBuilder) {
     this.formulario = this.formbuilder.group({
-
       password: ['', [
           Validators.required,
           Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
@@ -53,6 +52,7 @@ export class Eje3Component {
       Validators.required
     ]]
 },
+
  {Validators: this.passwordsIguales});
 }
 protected passwordsIguales(formGroup: FormGroup){
