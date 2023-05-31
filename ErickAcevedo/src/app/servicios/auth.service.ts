@@ -10,7 +10,7 @@ export class AuthService {
 
   constructor(private rutas: HttpClient) {}
 
-  public login(usuario: string, password: string): Observable<any> {
+  public login(usuario: string, password: string): Observable <any> {
     this.rutas.get(this.url + '/login', {usuario, password});
 }
 }
