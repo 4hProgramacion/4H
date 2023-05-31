@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./eje1.component.css']
 })
 export class Eje1Component {
+  public correo:string = '';
+  public password:string = '';
 
+  constructor(){}
+
+  public acceso(): void {
+    alert('Correo: ' + this.correo + ' Password: ' + this.password);
+  }
+
+  ngOnInit(): void {
+  }
 }
