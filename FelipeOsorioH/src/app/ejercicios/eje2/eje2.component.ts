@@ -10,6 +10,14 @@ export class Eje2Component implements OnInit {
 
   constructor(private UsuariosServicios: UsuariosService) {}
   public usuarios: any = [];
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    this.UsuariosServicios.getUsuarios().subscribe(
+      (res: any) => {
+        this.usuarios = res;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 }
