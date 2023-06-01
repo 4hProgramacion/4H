@@ -6,15 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./ejer2.component.css']
 })
 export class Ejer2Component {
-  constructor(private servicio:usuarioservice){
+  protected usuarios:any[]=[];
+  constructor(private servicio:UsuariosService) { }
     public ngOnInit():void {
-      this.servicio.getUsuarios().subscribe(data) => {
-        console.log(data);
-      },
-      (error) => -{
-        console.log(error);
-      }
+    this.servicio.getUsuarios().subscribe(
+    (data) => {
+      this.usuarios = data;
+    },
+    (error) => {
+      console.log(error);
     }
+    );
   }
 
 }
+
+
