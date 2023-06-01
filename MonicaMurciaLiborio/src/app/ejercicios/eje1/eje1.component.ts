@@ -23,7 +23,7 @@ export class Eje1Component {
     for (let i = 0; i < this.usuarios.length; i++) {
       if (this.correo == this.usuarios[i].usr && this.password == this.usuarios[i].psw) {
         alert("Bienvenido al sistema " + this.title);
-        this.rutas.navigate(["/Home"]);
+        this.rutas.navigate(["/home"]);
         return;
       }
       alert("El usuario o la contraseña no son correctas");
