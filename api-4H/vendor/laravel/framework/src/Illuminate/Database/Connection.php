@@ -524,7 +524,7 @@ class Connection implements ConnectionInterface
 
     /**
      * Execute an SQL statement and return the boolean result.
-     *
+     *d
      * @param  string  $query
      * @param  array  $bindings
      * @return bool
