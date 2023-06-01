@@ -1,5 +1,6 @@
 <div class="container">
-    <div class="card col-3" *ngForm="let usuario of usuarios">
+    <div class="row">
+    <div class="card col-3" *ngFor="let usuario of usuarios">
         <div class="card-header">
             {{ usuario.name}}
         </div>
@@ -10,5 +11,6 @@
             {{ usuario.updated_at}}
         </div>
     </div>
+</div>
 
 </div>
