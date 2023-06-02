@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
-  protected url = 'http://localhost:8000/api/ListadoUsuarios/';
-  constructor(private http: HttpClient) {}
-
-  public getUsuarios():Observable<any>{
-    return this.http.get(this.url);
+export class UsuarioService {
+  protected url = 'http://localhost:8000/api4h';
+  getUsuarios: any;
+  constructor(private http: HttpClient){}
+  public login(usuario: string, password: string): Observable<any>{
+    return this.http.post(this.url + 'login', { usuario, password });
   }
 }
