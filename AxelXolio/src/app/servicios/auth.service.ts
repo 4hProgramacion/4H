@@ -5,12 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  protected url = 'http://localhodt:3000/api4h';
+export class UsuariosService {
+  protected url = 'http://localhost:8000/api/ListadoUsuarios/';
+  constructor(private http: HttpClient) {}
 
-  constructor(private rutas: HttpClient ) { }
-
-  public login(usuario: string, password:string): Observable<any>{
-    this.rutas.post(this.url + 'login', {usuario, password}).subscribe;
+  public getUsuarios():Observable<any>{
+    return this.http.get(this.url);
   }
 }

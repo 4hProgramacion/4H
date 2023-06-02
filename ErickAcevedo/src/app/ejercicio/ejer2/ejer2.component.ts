@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuariosServices } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-ejer2',
@@ -6,15 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./ejer2.component.css']
 })
 export class Ejer2Component {
-  constructor(private servicio:usuarioservice){
-    public ngOnInit():void {
-      this.servicio.getUsuarios().subscribe(data) => {
-        console.log(data);
+  protected usuarios: any[] = [];
+  constructor(private servicios: UsuariosServices) { }
+  public ngOnInit(): void {
+    this.servicios.getUsuarios().subscribe(
+      (data) => {
+        this.usuarios = data;
       },
-      (error) => -{
+      (error) => {
         console.log(error);
       }
-    }
+    );
   }
 
 }
+
+
