@@ -12,6 +12,7 @@ export class UsuariosService {
     
    }
    public getUsuarios():Observable<any>{
+    
     return this.http.get(this.url);
    }
 
