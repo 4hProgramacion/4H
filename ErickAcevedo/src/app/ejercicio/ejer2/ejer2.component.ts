@@ -8,9 +8,9 @@ import { UsuariosServices } from 'src/app/servicios/auth.service';
 })
 export class Ejer2Component {
   protected usuarios: any[] = [];
-  constructor(private servicio: UsuariosServices) { }
+  constructor(private servicios: UsuariosServices) { }
   public ngOnInit(): void {
-    this.servicio.getUsuarios().subscribe(
+    this.servicios.getUsuarios().subscribe(
       (data) => {
         this.usuarios = data;
       },
