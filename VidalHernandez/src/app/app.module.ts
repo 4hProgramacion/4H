@@ -8,6 +8,8 @@ import { Eje2Component } from './ejercicios/eje2/eje2.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Eje3Component } from './ejercicios/eje3/eje3.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { Eje3Component } from './ejercicios/eje3/eje3.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

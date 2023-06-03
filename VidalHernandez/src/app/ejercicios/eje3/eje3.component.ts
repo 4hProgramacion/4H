@@ -7,7 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./eje3.component.css']
 })
 export class Eje3Component {
-  protected title: string = "Empresa de Angel SA de CV";
+  protected title: string = "Empresa de Vidal SA de CV";
   formulario: FormGroup;
   constructor(private formbuilder: FormBuilder){
     this.formulario = this.formbuilder.group({
