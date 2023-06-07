@@ -5,11 +5,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  protected url = 'http://localhost:8000/api4h/';
+export class UsuarioLostService {
+  protected url = 'http://localhost:8000/api4h/ListadoUsuarios';
 
-  constructor(private rutas: HttpClient) { }
-  public login(username: String, password: String): Observable<any> {
-    this.rutas.post(this.url + 'login', { username, password});
+  constructor(private http: HttpClient) { }
+  public getUsuarios(): Observable<any> {
+    return this.http.get(this.url);
   }
 }
+
+
+
