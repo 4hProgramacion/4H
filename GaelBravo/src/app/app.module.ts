@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Eje1Component } from './ejer1/ejer1/ejer1.component';
 import { Ejer2Component } from './ejer1/ejer2/ejer2.component';
 import { Eje3Component } from './ejer1/ejer3/ejer3.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { Eje3Component } from './ejer1/ejer3/ejer3.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

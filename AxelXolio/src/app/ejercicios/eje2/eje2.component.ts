@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from 'src/app/servicios/auth.service';
+import { UsuarioService } from 'src/app/servicios/auth.service';
 
 
 @Component({
@@ -8,18 +8,18 @@ import { UsuariosService } from 'src/app/servicios/auth.service';
   styleUrls: ['./eje2.component.css']
 })
 
-  export class Eje2Component implements OnInit {
+export class Eje2Component implements OnInit {
 
-    constructor(private UsuarioServices: UsuariosService) {}
-    public usuarios: any = [];
-    ngOnInit(): void {
-      this.UsuarioServices.getUsuarios().subscribe (
-        (res: any) => {
-          this.usuarios = res;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
-    }    
-  }
+  constructor(private UsuarioService: UsuarioService) {}
+  public usuarios: any = [];
+  ngOnInit(): void {
+    this.UsuarioService.getUsuarios().subscribe (
+      (res: any) => {
+        this.usuarios = res;
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+  }    
+}
