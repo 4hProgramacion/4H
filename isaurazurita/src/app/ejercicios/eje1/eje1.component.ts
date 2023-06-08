@@ -12,11 +12,11 @@ export class Eje1Component {
   protected password: string = '';
 
   validar(){
-    if(this.email=="isaura@l.com" && this.password=="1234")
+    if(this.email=="isaura@l.com" && this.password=="1234"){
     alert("Bienvenido al sistema :) " + this.title);
   }
   else{
-    alert("El usuario y contraseña no son corresctos :(");
+    alert("El usuario y contraseña no son correctos :(");
   }
-
+}
 }
