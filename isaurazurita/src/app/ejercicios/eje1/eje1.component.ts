@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class Eje1Component {
 
+  protected title: string = 'Empresa de isaura SA de CV';
+  protected email: string = '';
+  protected password: string = '';
+
+  validar(){
+    if(this.email=="isaura@l.com" && this.password=="1234"){
+    alert("Bienvenido al sistema :) " + this.title);
+  }
+  else{
+    alert("El usuario y contraseña no son correctos :(");
+  }
+}
 }
