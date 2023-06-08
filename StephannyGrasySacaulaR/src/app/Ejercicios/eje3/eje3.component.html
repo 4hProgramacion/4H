@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <h3>Registro al sistema de la {{title}}</h3>
                     <div class="card-body">
-                        <form [formGroup]="formulario">
+                        <form [formGroup]="formulario" (ngSubmit)="enviarDatos()">
                             <div class="row">
                                 <div class="col d-flex justify-content-between">
                                     <div class="mb-3">
@@ -135,7 +135,9 @@
                                             <input type="password" class="form-control" name="" id="pass" placeholder=""
                                                 formControlName="confirmaPassword">
                                             <div
-                                                *ngIf="formulario.get('confirmaPassword')?.invalid && formulario.get('confirmaPassword')?.touched" class="alert alert-danger">
+                                                *ngIf="formulario.controls['confirmaPassword'].getError('noSonIguale')|=null &&
+                                                && 
+                                                formulario.get('confirmaPassword')?.touched" class="alert alert-danger">
                                                 La contraseña no coincide
                                             </div>
 
