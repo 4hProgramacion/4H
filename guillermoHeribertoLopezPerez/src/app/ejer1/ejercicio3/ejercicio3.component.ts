@@ -23,24 +23,59 @@ export class Ejercicio3Component {
       ]],
 
       email:['',[
-        Validators.email,
+        Validators.required,
+        Validators.email
       ]],
 
       nombre:['', [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z]*$')
+      ]],
+
+      usuario:['', [
+        Validators.required
+      ]],
+
+      edad:['', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$')
+      ]],
+
+      telefono:['', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$')
+      ]],
+
+      direccion:['', [
+        Validators.required
+      ]],
+
+      ciudad:['', [
+        Validators.required
+      ]],
+
+      estado:['', [
+        Validators.required
+      ]],
+
+      pais:['', [
+        Validators.required
+      ]],
+
+      codigoPostal:['', [
+        Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(5),
+        Validators.maxLength(5)
+      ]],
+
+      fecha:['', [
         Validators.required
       ]],
 
       lastName:['', [
         Validators.required
       ]],
-
-      age:['', [
-        Validators.required
-      ]],
-
-      phone:['', [
-        Validators.required
-      ]]
     },
     { validate: this.confirmaPassword }
     );
@@ -50,5 +85,9 @@ export class Ejercicio3Component {
     const pass = passwordForm.get('password')?.value || '';
     const confirmaPass = passwordForm.get('confirmaPassword')?.value || '';
     return pass === confirmaPass ? null : { noSonIguales: true };
+  }
+
+  public enviarDatos(){
+    console.log(this.passwordForm.value);
   }
 }
