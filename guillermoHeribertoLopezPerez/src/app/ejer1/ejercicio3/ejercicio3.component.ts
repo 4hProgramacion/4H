@@ -33,10 +33,6 @@ export class Ejercicio3Component {
         Validators.pattern('^[a-zA-Z]*$')
       ]],
 
-      usuario:['', [
-        Validators.required
-      ]],
-
       edad:['', [
         Validators.required,
         Validators.pattern('^[0-9]*$'),
@@ -46,7 +42,9 @@ export class Ejercicio3Component {
 
       telefono:['', [
         Validators.required,
-        Validators.pattern('^[0-9]*$')
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(10),
+        Validators.maxLength(10)
       ]],
 
       direccion:['', [
@@ -67,16 +65,14 @@ export class Ejercicio3Component {
 
       codigoPostal:['', [
         Validators.required,
-        Validators.pattern('^[0-9]*$'),
-        Validators.minLength(5),
-        Validators.maxLength(5)
+        Validators.pattern('^[0-9]*$')
       ]],
 
       fecha:['', [
         Validators.required
       ]],
     },
-    { validate: this.passwordIguales('password', 'confirmaPassword') }
+    { validators: this.passwordIguales('password', 'confirmaPassword') }
     );
   }
 
@@ -100,6 +96,9 @@ export class Ejercicio3Component {
     this.servicio.RegistrarUsuario(this.passwordForm.value).subscribe(
       (response) => {
         console.log(response);
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }
