@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 })
 
 export class Eje3Component {
-  protected title: string = "Empresa de Jahaziel SA de CV";
+  protected title: string = "Empresa de Angel SA de CV";
+  
   formulario: FormGroup;
+  
   constructor(private formbuilder: FormBuilder, private servicio: UsuariosService){
     this.formulario = this.formbuilder.group({
       password: ['', [
