@@ -115,7 +115,7 @@
 
                                         <div class="mb-3">
                                             <label for="password" class="form-label">Password</label>
-                                            <input type="password" class="form-control" name="password" id="password"
+                                            <input type="password" class="form-control" name="" id="password"
                                                 placeholder="" formControlName="password">
                                             <div *ngIf="formulario.get('password')?.invalid && formulario.get('password')?.touched"
                                                 class="alert alert-danger">
@@ -146,7 +146,7 @@
                                             <input type="password" class="form-control" name="" id="pass" placeholder=""
                                                 formControlName="confirmaPassword">
                                             <div
-                                                *ngIf="formulario.controls['confirmaPassword'].getError('noSonIguale')|=null &&
+                                                *ngIf="formulario.controls['confirmaPassword'].getError('noSonIguales')!= null
                                                 && 
                                                 formulario.get('confirmaPassword')?.touched" class="alert alert-danger">
                                                 La contraseña no coincide
