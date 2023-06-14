@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  /*protected url = 'http://localhost:8000/api4h';
+  protected url = 'http://localhost:8000/api';
   
   constructor(private http: HttpClient){}
   
-  public login(usuario: string, password: string): Observable<any>{
-    this.http.post(this.url + 'login', { usuario, password});
-  }*/
+  public login(user: any): Observable<any>{
+    return this.http.post(this.url + 'login', user );
+  }
 }
