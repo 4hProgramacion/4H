@@ -8,7 +8,7 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
   styleUrls: ['./eje3.component.css']
 })
 export class Eje3Component {
-  protected title: string = "Empresa de Gael SA de CV";
+  protected title: string = "Empresa de Vidal SA de CV";
   formulario: FormGroup;
   constructor(private formbuilder: FormBuilder, private servicio: UsuariosService) {
     this.formulario = this.formbuilder.group({
