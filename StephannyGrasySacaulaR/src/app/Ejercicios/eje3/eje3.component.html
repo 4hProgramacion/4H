@@ -118,13 +118,24 @@
                                             <input type="password" class="form-control" name="" id="password"
                                                 placeholder="" formControlName="password">
                                             <div *ngIf="formulario.get('password')?.invalid && formulario.get('password')?.touched"
-                                                class="alert alert-danger">El
-                                                password es obligatorio y
-                                                debe de tener al menos 8
-                                                caracteres, debe incluir por
-                                                lo menos una letra mayuscula
-                                                y un numero
+                                                class="alert alert-danger">
+
+                                                <div *ngIf="formulario.controls['password'].errors?.['required'] ">
+                                                    El password es obligatorio
+                                                </div>
+
+                                                <div *ngIf="formulario.controls ['password'].errors?.['minLength']" >
+                                                    El PASSWORD DEBE TENER AL MENOS 8 CARACTERES
+                                                </div>
+
+                                                <div *ngIf="formulario.controls['password'].errors?.['pattern']">
+                                                    El password debe tener al menos una letra mayuscula, una minuscula y un numero
+
+                                                </div>
+
+
                                             </div>
+
 
                                         </div>
 
@@ -135,7 +146,7 @@
                                             <input type="password" class="form-control" name="" id="pass" placeholder=""
                                                 formControlName="confirmaPassword">
                                             <div
-                                                *ngIf="formulario.controls['confirmaPassword'].getError('noSonIguale')|=null &&
+                                                *ngIf="formulario.controls['confirmaPassword'].getError('noSonIguales')!= null
                                                 && 
                                                 formulario.get('confirmaPassword')?.touched" class="alert alert-danger">
                                                 La contraseña no coincide
@@ -150,7 +161,8 @@
                             </div>
 
                             <div class="card-footer">
-                                <button type="button" [disabled]="!formulario.valid"
+                                <button type="button" 
+                                [disabled]="!formulario.valid"
                                     class="btn btn-danger">Registrar</button>
 
                             </div>
