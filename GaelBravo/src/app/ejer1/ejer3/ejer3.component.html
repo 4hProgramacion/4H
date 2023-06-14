@@ -1,125 +1,210 @@
 <div class="container">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-12">
-        <form [formGroup]="passwordForm">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-9">
             <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col d-flex justify-content-between">
-                            <div class="mb-3">
-                                <label for="" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="" formControlName="nombre">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Age</label>
-                                <input type="number" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col d-flex justify-content-between">
-                            <div class="mb-3">
-                                <label for="" class="form-label">Phone</label>
-                                <input type="text" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="for
-                    m-text text-muted">Help Text</small>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">City</label>
-                                <input type="text" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col d-flex justify-content-between">
-                            <div class="mb-3">
-                                <label for="" class="form-label">State</label>
-                                <input type="text" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Country</label>
-                                <input type="text" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Postal Code</label>
-                                <input type="number" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col d-flex justify-content-between">
-                            <div class="mb-3">
-                                <label for="" class="form-label">Fecha de Nacimiento</label>
-                                <input type="date" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Email</label>
-                                <input type="email" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="" formControlName="email">
-                                <small id="helpId" class="form-text text-muted">Help Text</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col d-flex justify-content-between">
-                            <div class="mb-3">
-                                <label for="" class="form-label">Password</label>
-                                <input type="password" class="form-control" aria-describedby="helpId"
-                                    placeholder="" formControlName="password">
-                                <div *ngIf="passwordForm.controls['password'].errors?.['pattern']" class="alert alert-danger">
-                                    El password debe de tener al menos<br>
-                                    8 caracteres, debe incluir por lo menos<br>
-                                    una letra mayuscula, una minuscula y un numero.
+                <div class="card-header">
+                    <h3>Registro al sistema de la empresa {{ title }}</h3>
+                    <div class="card-body">
+                        <form [formGroup]="formulario" (ngSubmit)="enviarDatos()">
+                            <div class="row">
+                                <div class="col d-flex justify-content-between">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Name</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder=""
+                                            formControlName="nombre"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Age</label>
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder="" formControlName="edad"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
+                                    </div>
+                                     <div class="mb-3">
+                                        <label for="" class="form-label">Phone</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder="" formControlName="telefono"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
+                                    </div>
                                 </div>
-                                <div *ngIf="!(passwordForm.controls['password'].errors?.['pattern'])">
-                                    ✔
+                                <div class="col d-flex justify-content-between">
+                                   
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Address</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder="" formControlName="direccion"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">City</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder="" formControlName="ciudad"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">State</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder="" formControlName="estado"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Confirma Password</label>
-                                <input type="password" class="form-control" name="" aria-describedby="helpId" id=""
-                                    placeholder="" formControlName="confirmaPassword">
-                                    <div *ngif="passwordForm.errors?.['noSonIguales'] && passwordForm.controls['confirmaPassword'].dirty" class="alert alert-danger">
-                                        no coinciden los password
+                            <div class="row">
+                                <div class="col d-flex justify-content-between">
+                                    
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Country</label>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder="" formControlName="pais"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
                                     </div>
-                                    <div *ngif="!(passwordForm.errors?.['noSonIguales'] && passwordForm.controls['confirmaPassword'].dirty)">
-                                        ✔
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Postal
+                                            Code</label>
+                                        <input
+                                            type="number"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            aria-describedby="helpId"
+                                            placeholder="" formControlName="codigoPostal"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="cumple">Fecha de nacimiento:
+                                        </label>
+                                        <input
+                                            type="date"
+                                            name="cumple"
+                                            id="cumple"
+                                            class="form-control"
+                                            aria-describedby="helpId" formControlName="fecha"
+                                            />
+                                        <small id="helpId" class="form-text
+                                            text-muted">Help text</small>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-between">
+
+                                    <div class="row">
+                                        <div class="col d-flex
+                                            justify-content-between">
+                                            <div class="mb-3">
+                                                <label for=""
+                                                    class="form-label">Email</label>
+                                                <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    name=""
+                                                    id=""
+                                                    aria-describedby="emailHelpId"
+                                                    formControlName="email"
+                                                    />
+                                                <small id="emailHelpId"
+                                                    class="form-text text-muted">Help
+                                                    text</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for=""
+                                                    class="form-label">Password</label>
+                                                <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    name=""
+                                                    id=""
+                                                    placeholder=""
+                                                    formControlName="password">
+                                                    <div *ngIf="formulario.controls['password'].errors?.['required'] && formulario.get('password')?.touched" class="alert alert-danger">
+                                                        El password es necesario
+                                                    </div>
+                                                    <div *ngIf="formulario.controls['password'].errors?.['pattern'] && formulario.get('password')?.touched" class="alert alert-danger">
+                                                        Se necesita tener al menos una letra mayúscula una minúscula y un numero
+                                                    </div>
+                                                    <div *ngIf="formulario.controls['password'].errors?.['minlength'] && formulario.get('password')?.touched" class="alert alert-danger">
+                                                        Se necesita minimo 8 caracteres
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Confirmar tu Password</label>
+                                        <input
+                                            type="password"
+                                            class="form-control"
+                                            name=""
+                                            id=""
+                                            placeholder=""
+                                            formControlName="confirmaPassword">
+                                            <div *ngIf="formulario.controls['confirmaPassword'].getError('noSonIguales') != null && formulario.get('confirmaPassword')?.touched" class="alert alert-danger">
+                                                Las contraseñas no son iguales
+                                            </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit"
+                                        [disabled]="!formulario.valid"
+                                        class="btn btn-primary">Registrar</button>
+                                </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <div class="card-footer">
-                    <button type="button" [disabled]="!passwordForm.valid" class="btn btn-primary">Registrar</button>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
