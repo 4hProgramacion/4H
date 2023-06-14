@@ -15,7 +15,7 @@ export class Eje3Component {
       password:['',[
         Validators.required,
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
-        Validators.maxLength(8)
+        Validators.minLength(8)
       ]],
     
       confirmaPassword: ['', [
@@ -27,15 +27,18 @@ export class Eje3Component {
       ]],
       nombre: ['', [
         Validators.required,
+        Validators.pattern('^[a-zA-A]*$'),
       ]],
       apellido: ['',[
         Validators.required,
       ]],
       edad: ['', [
         Validators.required,
+        Validators.pattern('^[0-9]*$'),
       ]],
       telefono: ['', [
         Validators.required,
+        Validators.pattern('^[0-9]*$'),
       ]],
       direccion: ['',[
         Validators.required,
@@ -51,6 +54,9 @@ export class Eje3Component {
       ]],
       codigoPostal:['', [
         Validators.required,
+        Validators.pattern('^[0-9]*$'),
+        Validators.minLength(5),
+        Validators.maxLength(5),
       ]],
       fecha: ['',[
         Validators.required,
@@ -70,7 +76,16 @@ export class Eje3Component {
   protected passwordsIguales(formGroup: FormGroup){
     const pass= formGroup.get('password')?.value || '';
     const confirmaPass = formGroup.get('confirmaPassword')?.value || '';
-    return pass === confirmaPass? null : {noSonIguales: true};
+    return pass === confirmaPass? this.formulario.controls['confirmaPassword'].setErrors(null) : 
+    this.formulario.controls['confirmaPassword'].setErrors({noSonIguales: true});
+
+  }
+
+
+
+  public enviarDatos(){
+    console.log(this.formulario.value);
+    
   }
 
 
