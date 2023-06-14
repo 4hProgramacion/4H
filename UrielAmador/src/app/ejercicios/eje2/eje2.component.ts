@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-eje2',
@@ -12,7 +13,7 @@ export class Eje2Component {
   public ngOnInit():void{
     this.servicio.getUsuarios().subscribe(
       (data) => {
-        this.usuarios = data
+        this.usurarios = data
       },
       (error) => {
         console.log(error);
