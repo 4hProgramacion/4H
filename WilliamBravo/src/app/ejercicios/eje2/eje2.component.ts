@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UsuariosService } from 'src/app/servicios/auth.service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-eje2',

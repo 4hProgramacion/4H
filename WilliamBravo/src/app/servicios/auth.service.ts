@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
+export class AuthService {
   protected url = 'http://localhost:8000/api4h/';
   constructor(private http: HttpClient) { }
 
-  public getUsuarios(): Observable<any> {
-    return this.http.get(this.url);
+  public login(user : any): Observable<any> {
+    return this.http.post(this.url + 'login', user );
   }
 }
