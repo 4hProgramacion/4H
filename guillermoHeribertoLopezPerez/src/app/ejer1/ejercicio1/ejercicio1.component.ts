@@ -13,7 +13,7 @@ export class Ejercicio1Component {
 
   protected useForm: FormGroup;
 
-  constructor(private rutas:Router, private auth: AuthService, construir: FormBuilder){
+  constructor(private rutas:Router, private auth: AuthService, private construir: FormBuilder){
     this.useForm = construir.group({
       usuario:['', [Validators.required]],
       password:['', Validators.required]
