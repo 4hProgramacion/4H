@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  protected url = 'http://localhost:8000/api4h';
-  
+  protected url = 'http://localhost:8000/api';
   constructor(private http: HttpClient){}
   
   public login(user: any): Observable<any>{

@@ -1,13 +1,1 @@
-{
-  "extends": [
-    "development"
-  ],
-  "hints": {
-    "axe/parsing": [
-      "default",
-      {
-        "duplicate-id-aria": "off"
-      }
-    ]
-  }
-}
+
