@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-eje1',
@@ -9,24 +11,29 @@ import { Router } from '@angular/router';
 
 export class Eje1Component {
   public title: string = 'Empresa de Evgeny SA de CV';
-  public correo: string = '';
-  public password: string = '';
-  protected usuarios = [
-    { usr: "evgeny@l.com", psw: "1234", nombre: "Evgeny Nolasco" },
-    { usr: "ricardo@l.com", psw: "12345", nombre: "Richard" },
-    { usr: "rubi@l.com", psw: "123456", nombre: "Rubi Ruiz" }
-  ];
-  constructor(private rutas: Router) { }
   
 
+  protected useForm: FormGroup;
+
+
+  constructor(private rutas:Router, private auth: AuthService, construir: FormBuilder){
+    this.useForm = construir.group({
+      usuario:['', [Validators.required]],
+      
+      password:['', Validators.required]
+    });
+  }
+
+
   public accesar(): void {
-    for (let i = 0; i < this.usuarios.length; i++) {
-      if (this.correo == this.usuarios[i].usr && this.password == this.usuarios[i].psw) {
-        alert("Bienvenido al sistema " + this.title);
-        this.rutas.navigate(["/home"]);
-        return;
+    this.auth.login(this.useForm.value).subscribe({
+      next: (respuesta) => {
+        localStorage.setItem('login', JSON.stringify(respuesta));
+        this.rutas.navigate(['/Home']);
+      },
+      error: (error) => {
+        console.log(error);
       }
-      return alert("El usuario o la contraseña no son correctas");
-    }
+    });
   }
 }
