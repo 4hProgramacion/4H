@@ -27,15 +27,29 @@ constructor ( private formbuilder:FormBuilder){
     ]],
     nombre:['',[
       Validators.required,
+      Validators.pattern('^[a-zA-Z]*$'),
     ]],
     apellido:[''],
-    edad:[''],
-    telefono:[''],
+    edad:['',[
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+      Validators.min(18),
+      Validators.max(120),
+    ]],
+    telefono:['',[
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+    ]],
     direccion:[''],
     ciudad:[''],
     estado:[''],
     pais:[''],
-    codigopostal:[''],
+    codigopostal:['',[
+      Validators.required,
+      Validators.pattern('^[0-9]*$'),
+      Validators.minLength(5),
+      Validators.maxLength(5),
+    ]],
     fecha:[''],
 
   },
@@ -45,8 +59,13 @@ constructor ( private formbuilder:FormBuilder){
 protected passwordsiguales(FormGroup: FormGroup){
   const pass = FormGroup.get('password')?.value || '';
   const confirmapass = FormGroup.get('confirmapassword')?.value || '';
-  return pass === confirmapass ? null : {noSonIguales: true};
+  return pass === confirmapass ? this.Formulario.controls['confirmapassword'].setErrors(null) :
+  this.Formulario.controls['confirmapassword'].setErrors( {noSonIguales: true});
   
+}
+
+public enviardatos(){
+  console.log(this.Formulario.value);
 }
 } 
 
