@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
-@Component({
-  selector: 'app-ejercicio2',
-  templateUrl: './ejercicio2.component.html',
-  styleUrls: ['./ejercicio2.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class Ejercicio2Component implements OnInit {
-  protected usuarios:any[] = [];
+export class UsuariosService {
+  protected url = 'http://localhost:8000/api/ListadoUsuarios/';
+  constructor(private http: HttpClient) {}
 
-  constructor(private servicio: UsuariosService){}
+  public getUsuarios():Observable<any>{
+    return this.http.get(this.url + 'ListadoUsuarios');
+  }
 
-  public ngOnInit():void{
-    this.servicio.getUsuarios().subscribe(
-      (data) => {
-        this.usuarios = data
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  public RegistrarUsuario(usuario:any):Observable<any>{
+    return this.http.post(this.url + 'RegistroUsuario',usuario);
   }
 }
