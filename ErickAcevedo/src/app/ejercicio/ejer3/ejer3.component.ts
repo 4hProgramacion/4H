@@ -46,7 +46,12 @@ export class Ejer3Component {
   protected passwordsIguale(formGroup: FormGroup) {
     const pass = formGroup.get('password')?.value || '';
     const confirmaPasword = formGroup.get('confirmaPassword')?.value || '';
-    return pass === confirmaPasword ? null : {nosoniguales: true };
+    return pass === confirmaPasword? this.Formulario.controls['confirmaPasword'].setErrors(null) : 
+    this.Formulario.controls['confirmarPassword'].setErrors({nosoniguales: true });
+  }   
+
+  public enviarDatos(){
+    console.log(this.Formulario.value);
   }
 
 }

@@ -6,7 +6,7 @@
         <div class="card-header">
           <h3>formulario de registro a la Velvet Room {{title}}</h3>
           <div class="card-body">
-            <form [formGroup]="Formulario">
+            <form [formGroup]="Formulario" (ngSubmit)="enviarDatos()">
               <div class="row">
                 <div class="col-sm d-flex justify-content-between">
                   <div class="mb-3">
@@ -88,7 +88,7 @@
                   <div class="mb-3">
                     <label for="" class="form-label">Confirmarpassword</label>
                     <input type="password" class="form-control" name="" id="" placeholder="" formControlName="password">
-                    <div *ngIf="Formulario.get('password')?.invalid && Formulario.get('password')?.touched"
+                    <div *ngIf="Formulario.get('confirmaPassword')?.invalid && Formulario.get('password')?.touched"
                       class="alert-alert-danger">con coinside la contraseña</div>
                   </div>
                   <div class="card-footer">
