@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { Route, Router, RouterLink } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-ejer1',
@@ -7,23 +9,26 @@ import { Route, Router, RouterLink } from '@angular/router';
   styleUrls: ['./ejer1.component.css']
 })
 export class Ejer1Component {
-
 protected title:string = 'Empresa de William SA de CV';
-protected email:string = '';
-protected password:string = '';
-protected usuarios= [{usr:"ernesto@l.com",psw:"1234",nombre:"Ernesto"},
-                     {usr:"rubi@l.com",psw:"12345",nombre:"Rubi"},
-                     {usr:"murcia@l.com",psw:"123456",nombre:"Monica Murcia"}
-                    ];
-constructor(private rutas:Router) { }
-validar(){
-  for(let i=0; i<this.usuarios.length; i++){
-  if(this.email==this.usuarios[i].usr && this.password==this.usuarios[i].psw){
-    alert(this.usuarios[i].nombre+" Bienvenid@ al sistema"+ this.title);
-    this.rutas.navigate(["/Home"]);
-    return;
-  }
+protected useForm: FormGroup;
+
+constructor(private rutas:Router, private auth: AuthService, construir: FormBuilder){
+  this.useForm = construir.group({
+    usuario:['', [Validators.required]],
+    password:['', Validators.required]
+  });
 }
-  alert("El usuario y/o contraseña no son correctos"); 
-} 
+
+public acceso(){
+  this.auth.login(this.useForm.value).subscribe({
+    next: (respuesta) => {
+      localStorage.setItem('login', JSON.stringify(respuesta));
+      this.rutas.navigate(['/Home']);
+    },
+    error: (error) => {
+      console.log(error);
+    }
+  });
+}
+ngOnInit(): void {}
 }

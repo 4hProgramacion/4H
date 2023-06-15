@@ -6,6 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioService {
+  RegistrarUsuario(value: any) {
+    throw new Error('Method not implemented.');
+  }
+  RegistroUsuario(value: any) {
+    throw new Error('Method not implemented.');
+  }
   protected url="http://localhost:8000/api/ListadoUsuarios/";
   constructor(private http:HttpClient) { }
   public getUsuarios(): Observable <any> {
