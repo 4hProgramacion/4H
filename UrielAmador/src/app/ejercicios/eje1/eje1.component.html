@@ -1,22 +1,26 @@
 <div class="container">
+  <form [formGroup]="useForm" (ngSubmit)="validar()">
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <div class="card">
-                <h5 class="card-header">Acceso al sistema de {{title}}</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Datos de usuario</h5>
-                  <div class="form-floating mb-3">
-                    <input [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Correo</label>
-                  </div>
-                  <div class="form-floating">
-                    <input [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Contraseña</label>
-                  </div>
-                  <button (click)="validar()" class="btn btn-primary mt-3">Confirmar</button>
-                </div>
-              </div>
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="card">
+          <h5 class="card-header">Acceso al sistema de {{title}}</h5>
+          <div class="card-body">
+            <h5 class="card-title">Datos de usuario</h5>
+            <div class="form-floating mb-3">
+              <input formControlName="usuario" type="email" class="form-control" id="floatingInput"
+                placeholder="name@example.com">
+              <label for="floatingInput">Correo</label>
+            </div>
+            <div class="form-floating">
+              <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+                placeholder="Password">
+              <label for="floatingPassword">Contraseña</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Confirmar</button>
+          </div>
         </div>
+      </div>
     </div>
+  </form>
 </div>
