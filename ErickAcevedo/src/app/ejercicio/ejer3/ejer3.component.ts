@@ -30,7 +30,11 @@ export class Ejer3Component {
         Validators.required,
       ]],
       apellido: [''],
-      edad: [''],
+      edad: ['',[ 
+      Validators.pattern('^[0-9]'),
+      Validators.min(18),
+      Validators.max(100),
+    ]],
       telefono: [''],
       direccion: [''],
       ciudad: [''],
@@ -40,17 +44,23 @@ export class Ejer3Component {
       fecha: [''],
        
     }, 
-    {Validators: this['passwordIguale'] })
+    {Validators: this.passwordIguales ('password, confirmaPassword')});
 
   }
-  protected passwordsIguale(formGroup: FormGroup) {
-    const pass = formGroup.get('password')?.value || '';
-    const confirmaPasword = formGroup.get('confirmaPassword')?.value || '';
-    return pass === confirmaPasword ? null : {nosoniguales: true };
+  protected passwordsIguales( pass1: string, pass2: string){
+    return(formGroup: FormGroup) => {
+      const pass1control = formGroup.controls[pass1];
+      const pass2control = formGroup.controls[pass2];
+      if(pass1control.value === pass2control.value)
+      this.Formulario.controls['confirmaPassword'].setErrors(null);
+      else{
+        this.Formulario.controls['confirmaPassword'].setErrors({noEsIgual: true})
+  }   
+
+  (error: any) => {
+    console.log(error);
+    alert(error.error.message+" "+error.error.error);
   }
 
 }
-
-
-
-
+}
