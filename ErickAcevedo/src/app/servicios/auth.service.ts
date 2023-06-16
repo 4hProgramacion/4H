@@ -14,4 +14,8 @@ import { Observable } from 'rxjs';
     public getUsuarios(): Observable<any>{
       return this.http.get(this.url)
     } 
+
+    public RegistrarUsuario(usuario:any):Observable<any>{
+      return this.http.post(this.url+'RegistroUsuarios',usuario);
+    }
 }
