@@ -1,25 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from 'src/app/servicios/auth.service';
-
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-eje2',
   templateUrl: './eje2.component.html',
   styleUrls: ['./eje2.component.css']
 })
-
 export class Eje2Component implements OnInit {
+  protected usuarios:any[] = [];
 
-  constructor(private UsuarioService: UsuarioService) {}
-  public usuarios: any = [];
-  ngOnInit(): void {
-    this.UsuarioService.getUsuarios().subscribe (
-      (res: any) => {
-        this.usuarios = res;
+  constructor(private servicio: UsuariosService){}
+
+  public ngOnInit():void{
+    this.servicio.getUsuarios().subscribe(
+      (data) => {
+        this.usuarios = data
       },
-      (err: any) => {
-        console.log(err);
+      (error) => {
+        console.log(error);
       }
     );
-  }    
+  }
 }
