@@ -13,7 +13,6 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     Eje1Component,
     Eje2Component,
-    Eje2Component,
     Eje3Component
   ],
   imports: [
