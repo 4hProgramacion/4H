@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuariosService {
-  protected url = 'http://localhost:8000/api/ListadoUsuarios/';
+  protected url = 'http://localhost:8000/api/';
   constructor(private http: HttpClient) {}
   public getUsuarios():Observable<any>{
     
