@@ -31,8 +31,4 @@ export class Ejercicio1Component {
       }
     });
   }
-
-  ngOnInit(): void {
-
-  }
 }
