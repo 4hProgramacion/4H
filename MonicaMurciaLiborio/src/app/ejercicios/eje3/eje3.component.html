@@ -20,8 +20,12 @@
                                             placeholder=""
                                             formControlName="nombre"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                        <div *ngIf="formulario.controls['nombre'].errors?.['required'] && formulario.get('nombre')?.touched" class="alert alert-danger">
+                                            Campo Obligatorio
+                                        </div>
+                                        <div *ngIf="formulario.controls['nombre'].errors?.['pattern'] && formulario.get('nombre')?.touched" class="alert alert-danger">
+                                            Solo Letras y Sin Espacios
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">Age</label>
@@ -33,8 +37,15 @@
                                             aria-describedby="helpId"
                                             placeholder="" formControlName="edad"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                            <div *ngIf="formulario.controls['edad'].errors?.['required'] && formulario.get('edad')?.touched" class="alert alert-danger">
+                                                Campo Obligatorio
+                                            </div>
+                                            <div *ngIf="formulario.controls['edad'].errors?.['min'] && formulario.get('edad')?.touched" class="alert alert-danger">
+                                                Solo Mayores de 18 años
+                                            </div>
+                                            <div *ngIf="formulario.controls['edad'].errors?.['max'] && formulario.get('edad')?.touched" class="alert alert-danger">
+                                                Fuera del rango de Edad
+                                            </div>
                                     </div>
                                      <div class="mb-3">
                                         <label for="" class="form-label">Phone</label>
@@ -46,8 +57,15 @@
                                             aria-describedby="helpId"
                                             placeholder="" formControlName="telefono"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                            <div *ngIf="formulario.controls['telefono'].errors?.['required'] && formulario.get('telefono')?.touched" class="alert alert-danger">
+                                                Campo Obligatorio
+                                            </div>
+                                            <div *ngIf="formulario.controls['telefono'].errors?.['minlength'] && formulario.get('telefono')?.touched" class="alert alert-danger">
+                                                Requerido 10 numeros
+                                            </div>
+                                            <div *ngIf="formulario.controls['telefono'].errors?.['maxlength'] && formulario.get('telefono')?.touched" class="alert alert-danger">
+                                                Requerido 10 numeros
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="col d-flex justify-content-between">
@@ -62,8 +80,9 @@
                                             aria-describedby="helpId"
                                             placeholder="" formControlName="direccion"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                            <div *ngIf="formulario.controls['direccion'].errors?.['required'] && formulario.get('direccion')?.touched" class="alert alert-danger">
+                                                Campo Obligatorio
+                                            </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">City</label>
@@ -75,8 +94,9 @@
                                             aria-describedby="helpId"
                                             placeholder="" formControlName="ciudad"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                            <div *ngIf="formulario.controls['ciudad'].errors?.['required'] && formulario.get('ciudad')?.touched" class="alert alert-danger">
+                                                Campo Obligatorio
+                                            </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">State</label>
@@ -88,8 +108,9 @@
                                             aria-describedby="helpId"
                                             placeholder="" formControlName="estado"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                            <div *ngIf="formulario.controls['estado'].errors?.['required'] && formulario.get('estado')?.touched" class="alert alert-danger">
+                                                Campo Obligatorio
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -106,8 +127,9 @@
                                             aria-describedby="helpId"
                                             placeholder="" formControlName="pais"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                        <div *ngIf="formulario.controls['pais'].errors?.['required'] && formulario.get('pais')?.touched" class="alert alert-danger">
+                                            Campo Obligatorio
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="" class="form-label">Postal
@@ -120,8 +142,12 @@
                                             aria-describedby="helpId"
                                             placeholder="" formControlName="codigoPostal"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                            <div *ngIf="formulario.controls['codigoPostal'].errors?.['required'] && formulario.get('codigoPostal')?.touched" class="alert alert-danger">
+                                                Capo Obligatorio
+                                            </div>
+                                            <div *ngIf="formulario.controls['codigoPostal'].errors?.['pattern'] && formulario.get('codigoPostal')?.touched" class="alert alert-danger">
+                                                Solo Numeros
+                                            </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="cumple">Fecha de nacimiento:
@@ -133,8 +159,9 @@
                                             class="form-control"
                                             aria-describedby="helpId" formControlName="fecha"
                                             />
-                                        <small id="helpId" class="form-text
-                                            text-muted">Help text</small>
+                                            <div *ngIf="formulario.controls['fecha'].errors?.['required'] && formulario.get('fecha')?.touched" class="alert alert-danger">
+                                                Campo Obligatorio
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -155,9 +182,12 @@
                                                     aria-describedby="emailHelpId"
                                                     formControlName="email"
                                                     />
-                                                <small id="emailHelpId"
-                                                    class="form-text text-muted">Help
-                                                    text</small>
+                                                    <div *ngIf="formulario.controls['email'].errors?.['required'] && formulario.get('email')?.touched" class="alert alert-danger">
+                                                        Campo Obligatorio
+                                                    </div>
+                                                    <div *ngIf="formulario.controls['email'].errors?.['email'] && formulario.get('email')?.touched" class="alert alert-danger">
+                                                        No es un Email
+                                                    </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label for=""
