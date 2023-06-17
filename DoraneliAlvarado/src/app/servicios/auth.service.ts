@@ -7,9 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 url= 'http://localhost:8000/api4h/';
+  http: any;
   constructor(private rutas: HttpClient) { }
 
-  public login (usuario: string, password: string):Observable <any>{
-    this.rutas.post(this.url + 'login', {usuario, password});
+  public login(user: any): Observable<any>{
+    return this.http.post(this.url + 'login', user );
   }
 }
