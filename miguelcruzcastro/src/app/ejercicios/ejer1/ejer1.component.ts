@@ -16,16 +16,21 @@ export class Ejer1Component {
   
   constructor(private rutas:Router,private auth: AuthService, construir: FormBuilder){
     this.useForm = construir.group({
-      usuario:['',Validators.required],
+      email:['',Validators.required],
       password:['',Validators.required]
     });
 
   }
   validar(){
+    console.log(this.useForm.value);
     this.auth.login(this.useForm.value).subscribe({
-      next: function
-    })
+      next: (respuesta)=>{
+        localStorage.setItem('login', JSON.stringify(respuesta));
+        this.rutas.navigate(['/Home']);
+      },
+      error : (error)=>{
+        console.log(error);
+      }
+    });
     }
-      alert("El usuario o la contraseña es incorrecta :C");
   }
-}

@@ -15,7 +15,9 @@ constructor(private http:  HttpClient) { }
 
 
 
+
 public login(user: any): Observable<any>{
+  console.log(user);
   return this.http.post(this.url + 'login', user );
 }
 }
