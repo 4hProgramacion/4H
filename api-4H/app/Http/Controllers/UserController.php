@@ -101,4 +101,21 @@ class UserController extends Controller
     {
         //
     }
+    public function login (Request $request){
+        $usuario=User::where('usuario',$request->usuario)->first();
+        if($usuario->password == $request->password){
+            return response()->json([
+                "status" => 200,
+                "message"=>"usuario loguado correctamente",
+                "usuario"=>[
+                    "name"=>$usuario->name,
+                    "email"=>$usuario->email,
+                ]
+            ]);
+        }else{
+            return response()->json([
+                "message"=>"usuario o contraseña incorrectamente",
+            ], 201);
+        }
+    }
 }
