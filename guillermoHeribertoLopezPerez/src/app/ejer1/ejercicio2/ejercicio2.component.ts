@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
   templateUrl: './ejercicio2.component.html',
   styleUrls: ['./ejercicio2.component.css']
 })
-export class Ejercicio2Component {
+export class Ejercicio2Component implements OnInit {
   protected usuarios:any[] = [];
 
   constructor(private servicio: UsuariosService){}

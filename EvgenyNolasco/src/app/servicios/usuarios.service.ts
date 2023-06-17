@@ -9,12 +9,16 @@ export class UsuariosService {
   protected url = 'http://localhost:8000/api/ListadoUsuarios/';
   
   
-  
-  constructor(private usuario: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
 
+
+  public getUsuarios(): Observable <any>{
+    return this.http.get(this.url + 'ListadoUsuarios');
+  }
   
-  public getUsuarios():Observable<any>{
-    return this.usuario.get(this.url);
+  
+  public RegistrarUsuario(usuario: any): Observable<any>{
+    return this.http.post(this.url + 'RegistroUsuario',usuario);
   }
 }

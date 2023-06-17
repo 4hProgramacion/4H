@@ -8,12 +8,18 @@ import { UsuariosService } from 'src/app/servicios/usuarios.service';
 })
 export class Eje2Component {
   protected usuarios:any[] = [];
+
+
+  
   constructor(private servicio: UsuariosService){}
+  
+  
   public ngOnInit():void{
     this.servicio.getUsuarios().subscribe(
       (data) => {
         this.usuarios = data
       },
+      
       (error) => {
         console.log(error);
       }

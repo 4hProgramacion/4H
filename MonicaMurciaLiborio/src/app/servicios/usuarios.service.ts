@@ -14,4 +14,8 @@ export class UsuariosService {
   public getUsuarios():Observable<any>{
     return this.usuario.get(this.url);
   }
+
+  public RegistrarUsuario(usuario:any):Observable<any>{
+    return this.usuario.post(this.url + 'RegistroUsuario', usuario);
+  }
 }

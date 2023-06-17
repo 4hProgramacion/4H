@@ -1,4 +1,5 @@
 <div class="container mt-5">
+  <form [formGroup]="useForm" (ngSubmit)="validar()">
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
@@ -9,17 +10,18 @@
                 <div class="card-body">
                   <h5 class="card-title mb-3">Ingrese los siguientes datos</h5>
                   <div class="form-floating mb-3">
-                    <input [(ngModel)]="correo" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input formControlName="usuario" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                   </div>
                   <div class="form-floating">
-                    <input [(ngModel)]="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                   </div>
 
-                  <button (click)="login()" class="btn btn-primary mt-3">Login</button>
+                  <button type="submit" class="btn btn-primary mt-3">Login</button>
                 </div>
               </div>
         </div>
     </div>
+  </form>
 </div>

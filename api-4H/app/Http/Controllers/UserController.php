@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Str;
 class UserController extends Controller
 {
     /**
@@ -35,7 +36,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new User();
+        $usuario->name = $request->nombre;
+        $usuario->password=$request->password;
+        $usuario->email=$request->email;
+        $usuario->usuario=$request->usuario;
+        $usuario->edad=$request->edad;
+        $usuario->telefono=$request->telefono;
+        $usuario->direccion=$request->direccion;
+        $usuario->ciudad=$request->ciudad;
+        $usuario->estado=$request->estado;
+        $usuario->pais=$request->pais;
+        $usuario->fecha=$request->fecha;
+        $usuario->codigopostal=$request->codigopostal;
+        $usuario->remember_token = Str::random(10);
+        $usuario->save();
+
+        return response()->json([
+            "message"=>"usuario creado correctamente",
+        ],201);
     }
 
     /**
@@ -81,5 +100,22 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function login (Request $request){
+        $usuario=User::where('usuario',$request->usuario)->first();
+        if($usuario->password == $request->password){
+            return response()->json([
+                "status" => 200,
+                "message"=>"usuario loguado correctamente",
+                "usuario"=>[
+                    "name"=>$usuario->name,
+                    "email"=>$usuario->email,
+                ]
+            ]);
+        }else{
+            return response()->json([
+                "message"=>"usuario o contraseña incorrectamente",
+            ], 201);
+        }
     }
 }
