@@ -7,25 +7,25 @@
           <h3>Formulario de registro a la base de datos</h3>
         </div>
         <div class="card-body">
-          <form [formGroup]="formulario">
+          <form [formGroup]="formulario" (ngSubmit)="enviarDatos()">
 
             <div class="row">
               <div class="col d-flex justify-content-between">
                 <div class="mb-3">
                   <label for="" class="form-label">Name</label>
-                  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="" formControlName="nombre">
+                  <input type="text" class="form-control" name="" aria-describedby="helpId" placeholder="" formControlName="nombre">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name="" aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Age</label>
-                  <input type="number" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="number" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
               </div>
@@ -34,19 +34,19 @@
               <div class="col d-flex justify-content-between">
                 <div class="mb-3">
                   <label for="" class="form-label">Phone</label>
-                  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Address</label>
-                  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">City</label>
-                  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
               </div>
@@ -55,19 +55,19 @@
               <div class="col d-flex justify-content-between">
                 <div class="mb-3">
                   <label for="" class="form-label">State</label>
-                  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Country</label>
-                  <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="text" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Postal Code</label>
-                  <input type="number" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="number" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
               </div>
@@ -76,36 +76,46 @@
               <div class="col d-flex justify-content-between">
                 <div class="mb-3">
                   <label for="" class="form-label">Birthday</label>
-                  <input type="date" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                  <input type="date" class="form-control" name=""  aria-describedby="helpId" placeholder="">
                   <small id="helpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Email</label>
-                  <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId"
+                  <input type="email" class="form-control" name=""  aria-describedby="emailHelpId"
                     placeholder="abc@mail.com" formControlName="correo">
                   <small id="emailHelpId" class="form-text text-muted">Help text</small>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Password</label>
-                  <input type="password" class="form-control" name="" id="" placeholder="" formControlName="password">
+                  <input type="password" class="form-control" name=""  placeholder="" formControlName="password">
                   <div *ngIf="formulario.get ('password')?.invalid && formulario.get('password')?.touched" 
                   class="alert alert-danger">El password es obligatorio</div>
                 </div>
 
                 <div class="mb-3">
                   <label for="" class="form-label">Confirm Password</label>
-                  <input type="password" class="form-control" name="" id="" placeholder="" formControlName="confirmpassword">
-                  <div *ngIf="formulario.get ('confirmpassword')?.invalid && formulario.get('confirmpassword')?.touched" 
-                  class="alert alert-danger">Password incorrecto</div>
+                  <input type="password" class="form-control" name=""  placeholder="" formControlName="confirmpassword">
+                  <div *ngIf="formulario.controls ['confirmpassword'].getError ('noSonIguales')!=null
+                  && formulario.get('confirmpassword')?.touched" 
+                  class="alert alert-danger"><div *ngIf="formulario.controls['Password'].errors?.['required']">
+                    El password es obligatorio
+                  </div>
+                  <div *ngIf="formulario.controls['minLengt'].errors?.['required']">
+                    El password debe tener al menos 8 caracteres
+                  </div>>
+                  <div *ngIf="formulario.controls['pattern'].errors?.['required']">
+                    El password debe tener al menos una letra mayuscula, una minuscuala y un numero
+                  </div>>
+                </div>
                 </div>
               </div>
             </div>
           </form>
         </div>
         <div class="card-footer">
-            <button type="button" [disabled]="!formulario.valid" class="btn btn-primary">Registrar</button>
+            <button type="submit"  class="btn btn-primary">Registrar</button>
         </div>  
       </div>
     </div>

@@ -6,13 +6,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuarioLostService {
-  protected url = 'http://localhost:8000/api4h/ListadoUsuarios';
+  protected url = 'http://localhost:8000/api-4h/';
 
   constructor(private http: HttpClient) { }
   public getUsuarios(): Observable<any> {
-    return this.http.get(this.url);
+    return this.http.get(this.url + 'ListadoUsuarios');
+  }
+
+  public ResgistrarUsuario(usuario: any): Observable<any>{
+    return this.http.post(this.url + 'ResgistroUsuario' , usuario);
   }
 }
-
 
 
