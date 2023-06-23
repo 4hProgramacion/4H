@@ -1,1 +1,15 @@
-<p>eje2 works!</p>
+<div class="container">
+    <div class="row">
+        <div class="card col-3" *ngFor="let usuario of usuarios">
+            <div class="card-header">
+                {{ usuario.name }}
+            </div>
+            <div class="card-body">
+                {{ usuario.email }}
+                {{ usuario.email_verified_at }}
+                {{ usuario.created_at }}
+                {{ usuario.updated_at }}
+            </div>
+        </div>
+    </div>
+</div>

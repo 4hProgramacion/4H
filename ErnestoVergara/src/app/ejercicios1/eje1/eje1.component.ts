@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 @Component({
   selector: 'app-eje1',
@@ -7,29 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./eje1.component.css']
 })
 export class Eje1Component { 
-
-  protected title: string ="empresa de Ernesto SA de CV";
-  protected email:string ="";
-  protected password:string =""; 
-  protected usuario =[
-                       {usr:"ernesto@l.com", psw:"1234",nombre:"Ernesto Vergara Ortiz"},
-                       {usr:"maria@l.com", psw:"12345",nombre:"Maria Murillo Alvarafo"},
-                       {usr:"kevin@l.com", psw:"123456",nombre:"Kevin Martinez Venancio"}
-                     ];
- constructor(private  rutas:Router){
   
- }
+  protected title: string = "Empresa de Ernesto SA de CV";
+  protected useForm: FormGroup;
 
-  
-  validar(){
-   for(let i = 0; i < this.usuario.length; i++){
-    if(this.email==this.usuario[i].usr && this.password==this.usuario[i].psw){
-      alert(this.usuario[i].nombre+" Bienvenido al sistema de " + this.title);
-      this.rutas.navigate(["/Home"]);
-
-      return;
-    }
+  constructor(private rutas:Router, private auth: AuthService, construir: FormBuilder){
+    this.useForm = construir.group({
+      usuario:['', [Validators.required]],
+      password:['', Validators.required]
+    });
   }
-  alert("Usuario y contraseña incorrectos");
-}
+
+  public validar(){
+    this.auth.login(this.useForm.value).subscribe({
+      next: (respuesta) => {
+        localStorage.setItem('login', JSON.stringify(respuesta));
+        this.rutas.navigate(['/Home']);
+      }, error: (error) => {
+        console.log(error);
+      }
+    });
+  }
 }
