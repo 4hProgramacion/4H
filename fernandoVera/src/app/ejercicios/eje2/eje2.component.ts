@@ -17,7 +17,7 @@ export class Eje2Component {
   public ngOnInit():void{
     this.servicio.getUsuarios().subscribe(
       (data) => {
-        this.usuarios = data
+        this.usuarios = data;
       },
       
       (error) => {
