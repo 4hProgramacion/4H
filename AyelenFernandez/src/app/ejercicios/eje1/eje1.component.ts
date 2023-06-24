@@ -24,6 +24,7 @@ protected useForm = FormGroup;
     this.auth.login(useForm.value).subscribe(
       (data) => {
           localStorage.setItem('login',JSON.stringify(data));
+          this.rutas.routerLink(['Home']);
       },
       (error) => {
           console.log(error);
