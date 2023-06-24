@@ -21,7 +21,13 @@ protected useForm = FormGroup;
     });
   
   validar(){
-    this.auth.login(useForm.value)
+    this.auth.login(useForm.value).subscribe(
+      (data) => {
+          localStorage.setItem('login',JSON.stringify(data));
+      },
+      (error) => {
+          console.log(error);
+      });
     
     }
     
